@@ -62,7 +62,7 @@ const Transactions = () => {
 
 	return (
 		<UserLayout>
-			<div className=' px-4'>
+			<div className='px-4 '>
 				<div className='mx-auto'>
 					<div className='w-full h-full bg-black_2'>
 						<div className='my-4 rounded '>
@@ -186,7 +186,7 @@ const Transactions = () => {
 
 							{records?.length === 0 && (
 								<div className='flex flex-col items-center justify-center gap-3'>
-									<NotFoundIcon h={20} w={20} color={'gray'} />
+									<NotFoundIcon h={10} w={10} color={'gray'} />
 									<p className='text-white'>No records found.</p>
 								</div>
 							)}

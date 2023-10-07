@@ -1,7 +1,7 @@
 import React, { use, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { IoDiamondOutline } from 'react-icons/io5';
-import { RiDashboardFill, RiWallet3Fill } from 'react-icons/ri';
+import { RiDashboardFill, RiWallet3Fill, RiGlobalLine } from 'react-icons/ri';
 import { MdWorkHistory, MdNotifications, MdLogout } from 'react-icons/md';
 import { AiOutlineSecurityScan } from 'react-icons/ai';
 import { HiIdentification } from 'react-icons/hi';
@@ -91,10 +91,10 @@ const UserSidebar = () => {
 		},
 		{
 			id: 7,
-			name: 'Rewards',
-			link: '/rewards',
-			icon: <SlBadge />,
-			calBack: () => console.log('hello'),
+			name: 'Global view',
+			link: '/global',
+			icon: <RiGlobalLine />,
+			calBack: () => router.push('/global'),
 			isSubMenu: false,
 		},
 

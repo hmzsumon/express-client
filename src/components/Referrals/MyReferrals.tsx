@@ -23,7 +23,7 @@ const MyReferrals = () => {
 	const { data, isLoading, isError, isSuccess, error } = useGetMyTeamQuery(
 		user?._id
 	);
-	const members: memberType[] = data?.members;
+	const { team } = data || {};
 	return (
 		<>
 			{isLoading ? (
@@ -32,14 +32,13 @@ const MyReferrals = () => {
 				</div>
 			) : (
 				<>
-					<div className='flex items-center gap-2'>
+					<div className='flex items-center gap-2 '>
 						<FiUserPlus className='inline-block mr-2 text-2xl text-gray-400 cursor-pointer md:text-4xl ' />
 						<h1 className='text-xl font-bold md:text-4xl '>My Friends </h1>
 					</div>
-					<div className='my-4 '>
-						<div className='relative overflow-x-auto shadow-md sm:rounded-lg'>
-							<FriendsList />
-						</div>
+
+					<div className='overflow-x-auto shadow-md sm:rounded-lg'>
+						<FriendsList team={team} />
 					</div>
 				</>
 			)}

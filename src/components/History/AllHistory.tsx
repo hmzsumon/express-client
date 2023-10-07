@@ -3,7 +3,7 @@ import {
 	useGetMyTeamQuery,
 } from '@/features/auth/authApi';
 import { UserIcon } from '@/utils/icons/SecurityIcons';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+
 import { formDateWithTime } from '@/utils/functions';
 type memberType = {
 	_id: string;
@@ -17,7 +17,6 @@ type memberType = {
 	level: number;
 };
 
-import { PencilIcon, UserPlusIcon } from '@heroicons/react/24/solid';
 import {
 	Card,
 	CardHeader,

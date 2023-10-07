@@ -179,7 +179,26 @@ export const authApi = apiSlice.injectEndpoints({
 
 		// get all transactions
 		getAllTransactions: builder.query<any, void>({
-			query: () => '/transactions',
+			query: () => '/getMyTransactions',
+		}),
+
+		// get members by level
+		getMembersByLevel: builder.query<any, string>({
+			query: (level) => `/members-by-level/${level}`,
+		}),
+
+		// get 13 level tree
+		get13LevelTree: builder.query<any, any>({
+			query: () => `/13-level-tree-node`,
+		}),
+
+		// activate user
+		activateUser: builder.mutation<IUser, any>({
+			query: () => ({
+				url: '/activate-user',
+				method: 'PUT',
+			}),
+			invalidatesTags: ['User'],
 		}),
 	}),
 });
@@ -201,4 +220,7 @@ export const {
 	useVerifyCodeForChangeEmailMutation,
 	useAddPhoneNumberMutation,
 	useGetAllTransactionsQuery,
+	useGetMembersByLevelQuery,
+	useGet13LevelTreeQuery,
+	useActivateUserMutation,
 } = authApi;

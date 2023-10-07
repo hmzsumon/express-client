@@ -11,6 +11,7 @@ import { RightArrowIcon } from '@/utils/icons/CommonIcons';
 import { BiChevronRight } from 'react-icons/bi';
 import Link from 'next/link';
 import { RWebShare } from 'react-web-share';
+import UserLayout from '@/components/layout/UserLayout';
 
 const Referral = () => {
 	const { user } = useSelector((state: any) => state.auth);
@@ -27,10 +28,10 @@ const Referral = () => {
 	// short referral link
 	const shortReferralLink = referralLink.slice(0, 15) + '...';
 	return (
-		<>
-			<UserHeader />
-			<div className='px-4 py-2 md:px-8'>
-				<div className='grid items-center gap-6 py-20  '>
+		<UserLayout>
+			{/* <UserHeader /> */}
+			<div className='px-4 py-2 '>
+				<div className='grid items-center gap-6 py-4  '>
 					<div className='p-8  w-full bg-[rgba(46,114,210,.1)] border-[#2e72d2] border rounded-xl'>
 						<h2 className='mb-6 text-xl font-bold '>Default Referral</h2>
 						<div className='space-y-10 '>
@@ -73,12 +74,10 @@ const Referral = () => {
 					</div>
 				</div>
 			</div>
-			<div className='px-4 py-4 space-y-6 md:px-20'>
-				<div>
-					<MyReferrals />
-				</div>
+			<div className='px-4 py-4 space-y-6 '>
+				<MyReferrals />
 			</div>
-		</>
+		</UserLayout>
 	);
 };
 
