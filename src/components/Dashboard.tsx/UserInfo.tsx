@@ -4,9 +4,13 @@ import { RiEdit2Fill } from 'react-icons/ri';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 import { formDateWithTime } from '@/utils/functions';
+import { FaWallet } from 'react-icons/fa';
+import { useGetAfterJoiningUserQuery } from '@/features/auth/authApi';
 
 const UserInfo = () => {
 	const { user } = useSelector((state: any) => state.auth);
+	const { data } = useGetAfterJoiningUserQuery(undefined);
+	const { afterJoiningUsers } = data || {};
 	const [show, setShow] = useState(false);
 
 	const [open, setOpen] = useState(false);
@@ -27,7 +31,7 @@ const UserInfo = () => {
 				<div className='w-full space-y-3 '>
 					<div className='flex items-center gap-2 justify-betweens md:justify-start'>
 						<div className='w-full md:w-auto '>
-							<h1>{user?.nick_name}</h1>
+							<h1>{user?.full_name}</h1>
 						</div>
 						<div className='flex items-center justify-end w-full gap-x-2 md:w-auto '>
 							<RiEdit2Fill className='p-1 text-2xl text-gray-400 bg-gray-600 rounded md:bg-transparent ' />
@@ -73,6 +77,17 @@ const UserInfo = () => {
 					</div>
 				</div>
 			)}
+			<div className=' px-2 mb-2'>
+				<div className='flex items-start space-x-4 p-4  border-[#2e72d2] border rounded bg-[rgba(46,114,210,.1)]'>
+					<div className=' mt-1'>
+						<Image src='/tree.png' alt='wallet icon' width={60} height={60} />
+					</div>
+					<div className='space-y-2 '>
+						<h1 className='text-xl font-bold '>{afterJoiningUsers} Users</h1>
+						<p>Global joined after you.</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 };

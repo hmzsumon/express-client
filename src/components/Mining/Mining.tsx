@@ -66,8 +66,14 @@ const Mining = () => {
 									Balance:
 									<span className='mx-1 '>
 										{mining?.mining_balance
-											? Number(mining?.mining_balance).toFixed(5)
-											: Number(0).toFixed(5)}{' '}
+											? Number(mining?.mining_balance).toLocaleString('en-US', {
+													minimumFractionDigits: 2,
+													maximumFractionDigits: 5,
+											  })
+											: Number(0).toLocaleString('en-US', {
+													minimumFractionDigits: 2,
+													maximumFractionDigits: 5,
+											  })}{' '}
 										ELC
 									</span>
 								</h2>
@@ -86,7 +92,7 @@ const Mining = () => {
 							Your browser does not support the video tag.
 						</video>
 
-						<div className='absolute w-full text-center top-10 '>
+						<div className='absolute w-full text-center top-7 '>
 							<h2 className='text-2xl font-bold gradient-text '>
 								Express Life
 							</h2>

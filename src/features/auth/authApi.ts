@@ -200,6 +200,11 @@ export const authApi = apiSlice.injectEndpoints({
 			}),
 			invalidatesTags: ['User'],
 		}),
+
+		// get after joining user
+		getAfterJoiningUser: builder.query<any, any>({
+			query: () => `/my-after-joining-users`,
+		}),
 	}),
 });
 
@@ -223,4 +228,5 @@ export const {
 	useGetMembersByLevelQuery,
 	useGet13LevelTreeQuery,
 	useActivateUserMutation,
+	useGetAfterJoiningUserQuery,
 } = authApi;
