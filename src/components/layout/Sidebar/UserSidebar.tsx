@@ -130,6 +130,15 @@ const UserSidebar = () => {
 					<IoDiamondOutline />
 					<p>Regular User</p>
 				</div>
+				<div>
+					<div className=' mt-2 '>
+						{user?.is_active ? (
+							<p className='text-green-500'>Active</p>
+						) : (
+							<p className='text-red-500'>Inactive</p>
+						)}
+					</div>
+				</div>
 			</div>
 			<div className='my-6 '>
 				<ul className=''>

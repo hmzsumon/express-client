@@ -9,9 +9,12 @@ import {
 	useActivateUserMutation,
 	useLoadUserQuery,
 } from '@/features/auth/authApi';
+import { useSelector } from 'react-redux';
+import Link from 'next/link';
 
 const Activate = () => {
 	useLoadUserQuery();
+	const { user } = useSelector((state: any) => state.auth);
 	const [isActivated, setIsActivated] = useState(false);
 	const { width, height } = useWindowSize();
 	const [activateUser, { isLoading, isError, error, isSuccess }] =
@@ -53,7 +56,7 @@ const Activate = () => {
 							className='mx-auto'
 						/>
 					</div>
-					{isActivated ? (
+					{user?.is_active ? (
 						<h1 className='text-2xl font-semibold text-white'>
 							Your account is activated successfully
 						</h1>
@@ -65,12 +68,20 @@ const Activate = () => {
 					<div className='my-6'>
 						<div className='space-y-4 text-white '>
 							<div className='my-6 space-y-4'>
-								<button
-									className='w-full py-3 font-semibold text-gray-100 rounded bg-btn'
-									onClick={handleSubmit}
-								>
-									Activate
-								</button>
+								{user?.is_active ? (
+									<Link href='/dashboard'>
+										<button className='w-full py-3 font-semibold text-gray-100 rounded bg-btn'>
+											Go to Dashboard
+										</button>
+									</Link>
+								) : (
+									<button
+										className='w-full py-3 font-semibold text-gray-100 rounded bg-btn'
+										onClick={handleSubmit}
+									>
+										Activate
+									</button>
+								)}
 							</div>
 						</div>
 					</div>

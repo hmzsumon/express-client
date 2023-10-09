@@ -29,5 +29,9 @@ export const config = {
 		'/register',
 		'/global',
 		'/referral',
+		'/wallet',
+		'/wallet/withdraw',
+		'/wallet/deposit',
+		'/wallet/transactions',
 	],
 };
