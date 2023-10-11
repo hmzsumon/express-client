@@ -78,6 +78,13 @@ const Transfer = () => {
 			return;
 		}
 
+		// check sender balance
+		if (sender?.m_balance < amount) {
+			setErrorText('Insufficient balance');
+			toast.error('Insufficient balance');
+			return;
+		}
+
 		if (!password) {
 			setPasswordError(true);
 			return;
@@ -124,15 +131,15 @@ const Transfer = () => {
 
 	return (
 		<UserLayout>
-			<div className=' p-2'>
+			<div className='p-2 '>
 				<div className='flex flex-col gap-9'>
 					{/* <!-- Contact Form --> */}
 					{!findUser && (
-						<div className='rounded-sm border border-stroke bg-transparent p-4 '>
+						<div className='p-4 bg-transparent border rounded-sm border-stroke '>
 							<div className='border-b border-stroke py-4 px-6.5 '>
 								<h3 className='font-medium text-gray-100'>Fund Transfer</h3>
 							</div>
-							<div className=' my-2'>
+							<div className='my-2 '>
 								<div className='p-6.5'>
 									<div className='mb-4.5 flex flex-col gap-6'>
 										<div className='w-full '>
@@ -159,7 +166,7 @@ const Transfer = () => {
 									</div>
 
 									<button
-										className=' mt-3 flex w-full justify-center rounded bg-btn p-3 font-medium text-gray disabled:opacity-50 disabled:cursor-not-allowed'
+										className='flex justify-center w-full p-3 mt-3 font-medium rounded bg-btn text-gray disabled:opacity-50 disabled:cursor-not-allowed'
 										onClick={handleFindUser}
 										disabled={isLoading || !emailOrUsername}
 									>
@@ -189,30 +196,30 @@ const Transfer = () => {
 
 					{/* <!-- Contact Info --> */}
 					{findUser && (
-						<div className='rounded-sm border border-stroke bg-transparent p-4 '>
+						<div className='p-4 bg-transparent border rounded-sm border-stroke '>
 							<div className='border-b border-stroke py-4 px-6.5 '>
 								<h3 className='font-medium text-gray-100'>
 									Recipient Information
 								</h3>
 							</div>
-							<div className=' space-y-2 list-none my-2'>
-								<li className=' flex items-center justify-between'>
+							<div className='my-2 space-y-2 list-none '>
+								<li className='flex items-center justify-between '>
 									<p>Name</p>
-									<p className=' text-gray-500'>{recipient?.full_name}</p>
+									<p className='text-gray-500 '>{recipient?.full_name}</p>
 								</li>
-								<li className=' flex items-center justify-between'>
+								<li className='flex items-center justify-between '>
 									<p>Email</p>
-									<p className=' text-gray-500'>{recipient?.email}</p>
+									<p className='text-gray-500 '>{recipient?.email}</p>
 								</li>
-								<li className=' flex items-center justify-between'>
+								<li className='flex items-center justify-between '>
 									<p>Phone</p>
-									<p className=' text-gray-500'>{recipient?.phone}</p>
+									<p className='text-gray-500 '>{recipient?.phone}</p>
 								</li>
 							</div>
 							<hr className='my-3' />
-							<div className=' my-2'>
+							<div className='my-2 '>
 								<div className='p-6.5'>
-									<div className=' flex flex-col gap-4 '>
+									<div className='flex flex-col gap-4 '>
 										<div className='w-full '>
 											<label className='mb-2.5 block text-gray-100 text-xs '>
 												Amount
@@ -297,7 +304,7 @@ const Transfer = () => {
 									</div>
 
 									<button
-										className=' my-3 flex w-full justify-center rounded bg-btn p-3 font-medium text-gray disabled:opacity-50 disabled:cursor-not-allowed'
+										className='flex justify-center w-full p-3 my-3 font-medium rounded bg-btn text-gray disabled:opacity-50 disabled:cursor-not-allowed'
 										onClick={handleTransfer}
 										disabled={
 											isLoading ||
