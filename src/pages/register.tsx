@@ -579,13 +579,9 @@ const Register = () => {
 										className='ml-2 text-xs font-medium text-white dark:text-gray-300'
 									>
 										By clicking on the "Next" button below, you agree to our{' '}
-										<a href='#' className='text-cyan-600'>
-											Terms of Service
-										</a>{' '}
-										and{' '}
-										<a href='#' className='text-cyan-600'>
+										<Link href='/privacy' className='text-cyan-600'>
 											Privacy Policy
-										</a>
+										</Link>
 									</label>
 								</div>
 

@@ -7,11 +7,11 @@ const SecurityNotice = () => {
 			<div className='flex flex-col md:flex-row md:justify-between  gap-2 p-3 mx-2 bg-[#3c2601] rounded-md'>
 				<div className='text-sm'>
 					To increase your account security, it is recommended that you enable
-					2FA, including WFC/Google authenticator.
+					2FA, including Express Life/Google authenticator.
 				</div>
 				<div className='flex '>
 					<p className='text-xs text-yellow-700'>
-						Enable WFC/Google Authenticator Now &nbsp;
+						Enable Express Life/Google Authenticator Now &nbsp;
 					</p>
 				</div>
 			</div>

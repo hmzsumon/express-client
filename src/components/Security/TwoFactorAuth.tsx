@@ -74,6 +74,15 @@ const TwoFactorAuth = () => {
 			callback: () => {},
 			btnText: 'Manage',
 		},
+		{
+			id: 6,
+			icon: <BiometricIcon h={35} w={35} />,
+			title: 'Remove Account',
+			description:
+				'If you want to remove your account, please click the button below.',
+			callback: () => router.push('/remove-account'),
+			btnText: 'Manage',
+		},
 	];
 	return (
 		<div>

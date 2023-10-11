@@ -26,7 +26,7 @@ const MiningMore = () => {
 				</p>
 				<p className='text-xs font-semibold leading-5 tracking-widest text-cyan-100'>
 					Our innovative approach considers the availability of system
-					resources, the number of users engaged in mining WFC, and a base rate
+					resources, the number of users engaged in mining ELC, and a base rate
 					of 0.2. This ensures that mining operations remain efficient, stable,
 					and environmentally friendly, while offering a fair return to miners.
 					By dynamically calculating the mining rate, we strike a balance
@@ -34,20 +34,20 @@ const MiningMore = () => {
 					viability of the system.
 				</p>
 				<p className='text-xs font-semibold leading-5 tracking-widest text-cyan-100'>
-					At WFC Coin, we prioritize transparency and fairness. We believe that
+					At ELC Coin, we prioritize transparency and fairness. We believe that
 					every miner should have an equal opportunity to contribute to the
 					network and be rewarded accordingly. Our dynamic mining rate system
 					promotes inclusivity and prevents any single entity from monopolizing
 					the mining process.
 				</p>
 				<p className='text-xs font-semibold leading-5 tracking-widest text-cyan-100'>
-					With WFC Coin, you can trust that your mining efforts will be rewarded
+					With ELC Coin, you can trust that your mining efforts will be rewarded
 					fairly, and your contributions will be instrumental in supporting the
-					growth and security of the WFC network. Join us on this exciting
+					growth and security of the ELC network. Join us on this exciting
 					journey as we reshape the future of cryptocurrency mining.
 				</p>
 				<p className='text-xs font-semibold leading-5 tracking-widest text-cyan-100'>
-					Invest in WFC Coin today and be a part of the next generation of
+					Invest in ELC Coin today and be a part of the next generation of
 					mining innovation. Together, let's unlock the full potential of
 					cryptocurrency mining while maintaining a sustainable and
 					equitable ecosystem.
