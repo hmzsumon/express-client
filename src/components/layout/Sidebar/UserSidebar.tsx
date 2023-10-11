@@ -53,6 +53,7 @@ const UserSidebar = () => {
 				{ id: 3, name: 'Withdraw', link: '/wallet/withdraw' },
 				{ id: 4, name: 'Earn', link: '/wallet/earn' },
 				{ id: 5, name: 'Mining', link: '/wallet/mining' },
+				{ id: 6, name: 'Transfer', link: '/wallet/transfer' },
 			],
 			isSubMenu: true,
 		},

@@ -205,6 +205,14 @@ export const authApi = apiSlice.injectEndpoints({
 		getAfterJoiningUser: builder.query<any, any>({
 			query: () => `/my-after-joining-users`,
 		}),
+
+		// find user by email or username
+		findUserByEmailOrUsername: builder.mutation<any, any>({
+			query: (emailOrUserName) => ({
+				url: `/find-user-by-email-username?emailOrUsername=${emailOrUserName}`,
+				method: 'PUT',
+			}),
+		}),
 	}),
 });
 
@@ -229,4 +237,5 @@ export const {
 	useGet13LevelTreeQuery,
 	useActivateUserMutation,
 	useGetAfterJoiningUserQuery,
+	useFindUserByEmailOrUsernameMutation,
 } = authApi;

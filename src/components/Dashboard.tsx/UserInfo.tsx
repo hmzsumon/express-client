@@ -83,7 +83,9 @@ const UserInfo = () => {
 						<Image src='/tree.png' alt='wallet icon' width={60} height={60} />
 					</div>
 					<div className='space-y-2 '>
-						<h1 className='text-xl font-bold '>{afterJoiningUsers} Users</h1>
+						<h1 className='text-xl font-bold '>
+							{afterJoiningUsers > 0 ? afterJoiningUsers : 0} Users
+						</h1>
 						<p>Global joined after you.</p>
 					</div>
 				</div>

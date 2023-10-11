@@ -33,5 +33,6 @@ export const config = {
 		'/wallet/withdraw',
 		'/wallet/deposit',
 		'/wallet/transactions',
+		'/wallet/transfer',
 	],
 };
