@@ -23,6 +23,11 @@ export const depositApi = apiSlice.injectEndpoints({
 			query: (id) => `/deposit/${id}`,
 			providesTags: ['Deposits'],
 		}),
+
+		// get active deposit method
+		getActiveDepositMethod: builder.query<any, any>({
+			query: () => '/deposit-method/active',
+		}),
 	}),
 });
 
@@ -30,4 +35,5 @@ export const {
 	useCreateDepositRequestMutation,
 	useGetMyDepositsQuery,
 	useGetDepositQuery,
+	useGetActiveDepositMethodQuery,
 } = depositApi;

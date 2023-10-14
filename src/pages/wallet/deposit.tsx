@@ -4,6 +4,7 @@ import { fetchBaseQueryError } from '@/services/helpers';
 import UserLayout from '@/components/layout/UserLayout';
 import {
 	useCreateDepositRequestMutation,
+	useGetActiveDepositMethodQuery,
 	useGetMyDepositsQuery,
 } from '@/features/deposit/depositApi';
 
@@ -11,12 +12,14 @@ import { Dialog, DialogBody } from '@material-tailwind/react';
 import { useRouter } from 'next/router';
 
 import { IoCloseCircleOutline } from 'react-icons/io5';
-import { ScaleLoader } from 'react-spinners';
+import { ScaleLoader, SyncLoader } from 'react-spinners';
 import { HiArrowSmLeft } from 'react-icons/hi';
 import { HistoryIcon } from '@/global/icons/CommonIcons';
 import CopyToClipboard from '@/utils/CopyToClipboard';
 import DepositRecords from '@/components/Deposits/DepositRecords';
-
+import { m } from 'framer-motion';
+import ioBaseUrl from '@/config/ioBaseUrl';
+import socketIOClient from 'socket.io-client';
 const Deposit = () => {
 	const [createDepositRequest, { isError, isSuccess, isLoading, error }] =
 		useCreateDepositRequestMutation();
@@ -29,9 +32,18 @@ const Deposit = () => {
 		isSuccess: h_isSuccess,
 	} = useGetMyDepositsQuery(undefined);
 
+	// get active deposit method
+	const {
+		data: methodData,
+		isLoading: m_isLoading,
+		refetch: m_refetch,
+	} = useGetActiveDepositMethodQuery(undefined);
+	const { method } = methodData || {};
+
 	const { deposits } = data || [];
 	// console.log('deposits', deposits);
 
+	const [depositMethod, setDepositMethod] = useState<any>(method);
 	const [textError, setTextError] = useState<string>('');
 	const [tnxError, setTnxError] = useState<string>('');
 	const [amount, setAmount] = useState<number>(10);
@@ -40,6 +52,7 @@ const Deposit = () => {
 	const [open2, setOpen2] = useState(false);
 	const [bonusTex, setBonusTex] = useState<boolean>(false);
 	const [is_bonus, setIs_bonus] = useState<boolean>(false);
+
 	const handleOpen = () => setOpen(!open);
 	const handleOpen2 = () => {
 		setOpen2(!open2);
@@ -73,6 +86,7 @@ const Deposit = () => {
 				amount: amount,
 				transactionId: transactionId,
 				is_bonus: is_bonus,
+				method,
 			};
 
 			// console.log('data', data);
@@ -101,6 +115,30 @@ const Deposit = () => {
 			setTnxError('');
 		}
 	}, [isError, isSuccess, error]);
+
+	useEffect(() => {
+		const socket = socketIOClient(ioBaseUrl, {
+			transports: ['websocket', 'polling'],
+		});
+
+		socket.on('connect', () => {
+			console.log('connected');
+		});
+		socket.on('deposit-method', (method: any) => {
+			console.log('notification', method);
+			// setDepositMethod(method);
+			m_refetch();
+		});
+
+		socket.on('disconnect', () => {
+			console.log('disconnected');
+		});
+
+		return () => {
+			socket.disconnect();
+		};
+	}, [m_refetch]);
+
 	return (
 		<UserLayout>
 			<div>
@@ -124,101 +162,112 @@ const Deposit = () => {
 								</span>
 							</div>
 						</div>
-						<div className='flex flex-col items-center justify-center my-4 '>
-							<img
-								src='/images/binance/qr_code1.png'
-								alt='Deposit'
-								className=' w-36 md:w-60'
-							/>
-							<p className='my-3 text-blue-gray-400'>
-								Send only USDT to this address
-							</p>
-						</div>
-						<hr className='border border-[#2e72d2]' />
-						<div className='my-6 space-y-4 '>
-							<div>
-								<p className='text-sm text-blue-gray-400'>Network</p>
-								<p className='text-blue-gray-100'>Tron (TRC20)</p>
+
+						{/* Method */}
+						{m_isLoading ? (
+							<div className='flex items-center justify-center '>
+								<SyncLoader color='#EAB308' size={10} />
 							</div>
+						) : (
 							<div>
-								<p className='text-sm text-blue-gray-400'>Wallet Address</p>
-								<div className='flex items-center justify-between'>
-									<p className='text-sm text-blue-gray-100'>
-										TS7v4YksSk2BFyC3cPwzyg1Y1RQDQNN3kG
+								<div className='flex flex-col items-center justify-center my-4 '>
+									<img
+										src={method?.qr_code_url}
+										alt='Deposit'
+										className=' w-36 md:w-60'
+									/>
+									<p className='my-3 text-blue-gray-400'>
+										Send only USDT to this address
 									</p>
-									<CopyToClipboard
-										text={'TS7v4YksSk2BFyC3cPwzyg1Y1RQDQNN3kG'}
-										size='text-md'
-									/>
 								</div>
-							</div>
+								<hr className='border border-[#2e72d2]' />
+								<div className='my-6 space-y-4 '>
+									<div>
+										<p className='text-sm text-blue-gray-400'>Network</p>
+										<p className='text-blue-gray-100'>Tron (TRC20)</p>
+									</div>
+									<div>
+										<p className='text-sm text-blue-gray-400'>Wallet Address</p>
+										<div className='flex items-center justify-between'>
+											<p className='text-sm text-blue-gray-100'>
+												{method?.trx_address}
+											</p>
+											<CopyToClipboard
+												text={method?.trx_address}
+												size='text-md'
+											/>
+										</div>
+									</div>
 
-							{/* Confirm Form */}
-							<div className='mt-10 space-y-4 '>
-								<div className='relative flex flex-col gap-1 '>
-									<label className='mb-1 ml-1 text-sm font-semibold text-gray-400 '>
-										Enter Amount
-									</label>
-									<input
-										className={`px-4 py-1 ${
-											textError && 'border-red-500'
-										} text-blue-gray-200 bg-transparent border rounded focus:outline-none`}
-										type='number'
-										value={amount}
-										onChange={(e) => handleChange(e)}
-									/>
+									{/* Confirm Form */}
+									<div className='mt-10 space-y-4 '>
+										<div className='relative flex flex-col gap-1 '>
+											<label className='mb-1 ml-1 text-sm font-semibold text-gray-400 '>
+												Enter Amount
+											</label>
+											<input
+												className={`px-4 py-1 ${
+													textError && 'border-red-500'
+												} text-blue-gray-200 bg-transparent border rounded focus:outline-none`}
+												type='number'
+												value={amount}
+												onChange={(e) => handleChange(e)}
+											/>
 
-									{textError && (
-										<p className='text-xs text-red-500'>{textError}</p>
-									)}
-								</div>
+											{textError && (
+												<p className='text-xs text-red-500'>{textError}</p>
+											)}
+										</div>
 
-								<div className='relative flex flex-col gap-1 '>
-									<label className='mb-1 ml-1 text-sm font-semibold text-gray-400 '>
-										Trx ID / Order ID
-									</label>
-									<input
-										className={`px-4 py-1 text-blue-gray-200 bg-transparent border rounded  focus:outline-none`}
-										type='text'
-										value={transactionId}
-										onChange={(e) => setTransactionId(e.target.value)}
-									/>
+										<div className='relative flex flex-col gap-1 '>
+											<label className='mb-1 ml-1 text-sm font-semibold text-gray-400 '>
+												Trx ID / Order ID
+											</label>
+											<input
+												className={`px-4 py-1 text-blue-gray-200 bg-transparent border rounded  focus:outline-none`}
+												type='text'
+												value={transactionId}
+												onChange={(e) => setTransactionId(e.target.value)}
+											/>
 
-									<div className='flex items-center justify-between '>
-										{tnxError ? (
-											<p className='text-xs text-red-500'>{tnxError}</p>
-										) : (
-											<small>
-												Please enter a valid transaction id otherwise your
-												deposit will be rejected.
-											</small>
-										)}
+											<div className='flex items-center justify-between '>
+												{tnxError ? (
+													<p className='text-xs text-red-500'>{tnxError}</p>
+												) : (
+													<small>
+														Please enter a valid transaction id otherwise your
+														deposit will be rejected.
+													</small>
+												)}
+											</div>
+										</div>
+									</div>
+									{/*End Confirm Form */}
+
+									<div className='px-4 py-4 space-y-2 text-xs bg-[#030039] md:text-md'>
+										<div className='flex items-center justify-between '>
+											<p className='text-blue-gray-400 '>Minimum deposit</p>
+											<p className='text-blue-gray-100 '> &gt;10 USDT </p>
+										</div>
+										<div className='flex items-center justify-between '>
+											<p className='text-blue-gray-400 '>Expected arrival</p>
+											<p className='text-blue-gray-100 '>
+												{' '}
+												1 network confirmation{' '}
+											</p>
+										</div>
+										<div className='flex items-center justify-between '>
+											<p className='text-blue-gray-400 '>Expected unlock</p>
+											<p className='text-blue-gray-100 '>
+												{' '}
+												1 network confirmation{' '}
+											</p>
+										</div>
 									</div>
 								</div>
 							</div>
-							{/*End Confirm Form */}
+						)}
 
-							<div className='px-4 py-4 space-y-2 text-xs bg-[#030039] md:text-md'>
-								<div className='flex items-center justify-between '>
-									<p className='text-blue-gray-400 '>Minimum deposit</p>
-									<p className='text-blue-gray-100 '> &gt;10 USDT </p>
-								</div>
-								<div className='flex items-center justify-between '>
-									<p className='text-blue-gray-400 '>Expected arrival</p>
-									<p className='text-blue-gray-100 '>
-										{' '}
-										1 network confirmation{' '}
-									</p>
-								</div>
-								<div className='flex items-center justify-between '>
-									<p className='text-blue-gray-400 '>Expected unlock</p>
-									<p className='text-blue-gray-100 '>
-										{' '}
-										1 network confirmation{' '}
-									</p>
-								</div>
-							</div>
-						</div>
 						<div className=''>
 							<button
 								className='w-full py-1 font-bold rounded-sm bg-btn text-blue-gray-100 disabled:opacity-50 disabled:cursor-not-allowed '
