@@ -206,7 +206,7 @@ const Register = () => {
 			country_code: code,
 			password: password,
 			confirm_password: confirmPassword,
-			referral: referralCode ? referralCode : '169667654409',
+			referral: referralCode ? referralCode : '169747226270',
 		};
 
 		registerUser(data);
