@@ -27,7 +27,11 @@ const Countdown: React.FC<CountdownProps> = ({ miningTime }) => {
 
 	return (
 		<div>
-			<p className='text-cyan-100 '>{formatTime(time)}</p>
+			{time > 0 ? (
+				<p className='text-cyan-100 '>{formatTime(time)}</p>
+			) : (
+				<p className='text-cyan-100 '>00:00:00</p>
+			)}
 		</div>
 	);
 };

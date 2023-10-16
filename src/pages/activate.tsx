@@ -11,6 +11,7 @@ import {
 } from '@/features/auth/authApi';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
+import { PulseLoader } from 'react-spinners';
 
 const Activate = () => {
 	useLoadUserQuery();
@@ -79,7 +80,13 @@ const Activate = () => {
 										className='w-full py-3 font-semibold text-gray-100 rounded bg-btn'
 										onClick={handleSubmit}
 									>
-										Activate
+										{isLoading ? (
+											<div className='flex items-center justify-center '>
+												<PulseLoader color='white' size={10} />
+											</div>
+										) : (
+											'Activate'
+										)}
 									</button>
 								)}
 							</div>

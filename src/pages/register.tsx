@@ -206,7 +206,7 @@ const Register = () => {
 			country_code: code,
 			password: password,
 			confirm_password: confirmPassword,
-			referral: referralCode ? referralCode : '169667654409',
+			referral: referralCode ? referralCode : '169745133727',
 		};
 
 		registerUser(data);
@@ -241,7 +241,7 @@ const Register = () => {
 				'Registration successful. Please check your email for verification'
 			);
 			router.push({
-				pathname: '/dashboard',
+				pathname: '/email-verify',
 				query: { email: email },
 			} as any);
 		}

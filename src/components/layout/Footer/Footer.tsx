@@ -55,10 +55,10 @@ const Footer = () => {
 					</div>
 					<div className='flex gap-4 md:w-9/12 '>
 						<button className='w-6/12 py-2 font-bold rounded-md bg-btn'>
-							<Link href='/register'>About Us</Link>
+							<Link href='/about'>About Us</Link>
 						</button>
 						<button className='w-6/12 py-2 font-bold rounded-md bg-btn'>
-							<Link href='/register'>Trams & Conditions</Link>
+							<Link href='/privacy'>Trams & Conditions</Link>
 						</button>
 					</div>
 				</div>

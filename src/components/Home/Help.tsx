@@ -44,7 +44,7 @@ const Help = () => {
 							</p>
 							<button className='w-6/12 py-2 font-bold rounded-md bg-btn'>
 								<a
-									href='https://t.me/johan028'
+									href='https://t.me/expresslife2023'
 									target='_blank'
 									rel='noopener noreferrer'
 									className='text-white'

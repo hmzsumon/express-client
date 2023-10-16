@@ -27,7 +27,6 @@ const Mining = () => {
 	const { user } = useSelector((state: any) => state.auth);
 	const { data, isLoading } = useMyMiningQuery(user?._id);
 	const { mining } = data || {};
-	console.log(mining);
 
 	useEffect(() => {
 		// On component mount, check if there's a saved playback time
