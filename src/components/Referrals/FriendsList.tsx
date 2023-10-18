@@ -2,7 +2,7 @@ import { Typography } from '@material-tailwind/react';
 import Link from 'next/link';
 import React from 'react';
 import { FiExternalLink } from 'react-icons/fi';
-import { m } from 'framer-motion';
+
 const headers = [
 	{
 		id: 1,

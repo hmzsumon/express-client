@@ -34,5 +34,6 @@ export const config = {
 		'/wallet/deposit',
 		'/wallet/transactions',
 		'/wallet/transfer',
+		'/remove-account',
 	],
 };

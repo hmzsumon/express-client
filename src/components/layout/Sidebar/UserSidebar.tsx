@@ -51,9 +51,7 @@ const UserSidebar = () => {
 				{ id: 1, name: 'Overview', link: '/wallet/overview' },
 				{ id: 2, name: 'Deposit', link: '/wallet/deposit' },
 				{ id: 3, name: 'Withdraw', link: '/wallet/withdraw' },
-				{ id: 4, name: 'Earn', link: '/wallet/earn' },
-				{ id: 5, name: 'Mining', link: '/wallet/mining' },
-				{ id: 6, name: 'Transfer', link: '/wallet/transfer' },
+				{ id: 4, name: 'Transfer', link: '/wallet/transfer' },
 			],
 			isSubMenu: true,
 		},
@@ -74,14 +72,14 @@ const UserSidebar = () => {
 			calBack: () => router.push('/security'),
 			isSubMenu: false,
 		},
-		{
-			id: 5,
-			name: 'Identification',
-			link: '/identification',
-			icon: <HiIdentification />,
-			calBack: () => console.log('hello'),
-			isSubMenu: false,
-		},
+		// {
+		// 	id: 5,
+		// 	name: 'Identification',
+		// 	link: '/identification',
+		// 	icon: <HiIdentification />,
+		// 	calBack: () => console.log('hello'),
+		// 	isSubMenu: false,
+		// },
 		{
 			id: 6,
 			name: 'Referral',
@@ -132,7 +130,7 @@ const UserSidebar = () => {
 					<p>Regular User</p>
 				</div>
 				<div>
-					<div className=' mt-2 '>
+					<div className='mt-2 '>
 						{user?.is_active ? (
 							<p className='text-green-500'>Active</p>
 						) : (

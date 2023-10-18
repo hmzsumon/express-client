@@ -12,9 +12,9 @@ const Security = () => {
 				<Header />
 			</div>
 			<div className='px-6 py-8 '>
-				<div>
+				{/* <div>
 					<SecurityNotice />
-				</div>
+				</div> */}
 				<div>
 					<TwoFactorAuth />
 				</div>

@@ -35,6 +35,7 @@ const LeftContent = () => {
 	const [way, setWay] = React.useState<string>('binance');
 	const [network, setNetwork] = React.useState<string>('TRC20');
 	const [address, setAddress] = React.useState<string>('');
+	const [binanceId, setBinanceId] = React.useState<string>('');
 	const [payId, setPayId] = React.useState<string>('');
 	const [amount, setAmount] = React.useState<number>(0);
 	const [availableAmount, setAvailable] = React.useState<number>(0);
@@ -42,11 +43,21 @@ const LeftContent = () => {
 	const [errorText, setErrorText] = React.useState<string>('');
 	const [password, setPassword] = React.useState<string>('');
 	const [showPassword, setShowPassword] = React.useState<boolean>(false);
+	const [minAmount, setMinAmount] = React.useState<number>(0);
 
 	// show password
 	const handleShowPassword = () => {
 		setShowPassword(!showPassword);
 	};
+
+	// set minimum amount
+	useEffect(() => {
+		if (way === 'crypto') {
+			setMinAmount(11);
+		} else {
+			setMinAmount(5);
+		}
+	}, [way]);
 
 	// set available amount
 	useEffect(() => {
@@ -62,8 +73,8 @@ const LeftContent = () => {
 	const handleAmountChange = (e: any) => {
 		const value = e.target.value;
 		setAmount(value);
-		if (value < 5) {
-			setErrorText('Minimum amount is 5 USDT');
+		if (value < minAmount) {
+			setErrorText(`Minimum amount is ${minAmount} USDT`);
 			return;
 		} else if (value > availableAmount) {
 			setErrorText('Insufficient balance');
@@ -73,9 +84,11 @@ const LeftContent = () => {
 		}
 
 		if (way === 'crypto') {
-			setReceiveAmount(Number(value) - Number(value) * 0.05);
+			setMinAmount(11);
+			setReceiveAmount(Number(value) - 1);
 		} else {
-			setReceiveAmount(Number(value) - Number(value) * 0.03);
+			setMinAmount(5);
+			setReceiveAmount(Number(value) - 0.5);
 		}
 	};
 
@@ -107,22 +120,21 @@ const LeftContent = () => {
 	}, [isError, error, isSuccess]);
 
 	return (
-		<div className='space-y-2 '>
-			{/* <div className=''>
+		<div className='space-y-4 '>
+			<div className=''>
 				<Select
 					color='blue'
 					label='Select Way'
 					value={way}
 					onChange={(selectedValue) => setWay(selectedValue ?? '')}
 					className='disabled:border disabled:bg-transparent text-blue-gray-100 disabled:opacity-50 disabled:cursor-not-allowed'
-					disabled
 				>
 					<Option value='binance'>Binance Pay</Option>
 					<Option value='crypto'>Crypto</Option>
 				</Select>
-			</div> */}
+			</div>
 			{way === 'crypto' && (
-				<div className=''>
+				<div className='mt-2'>
 					<Select
 						label='Select Network'
 						className='text-blue-gray-100 '
@@ -152,6 +164,20 @@ const LeftContent = () => {
 					}}
 				/>
 			</div>
+
+			{way === 'binance' && (
+				<div className='flex flex-col '>
+					<label htmlFor='' className='my-2 text-xs'>
+						Enter Binance ID
+					</label>
+					<input
+						type='text'
+						className='py-[5px] px-4 rounded bg-transparent border focus:text-blue-gray-100'
+						value={binanceId}
+						onChange={(e) => setBinanceId(e.target.value)}
+					/>
+				</div>
+			)}
 			{/* Amount */}
 			<div className='flex flex-col'>
 				<label htmlFor='' className='my-2 text-xs'>
@@ -180,7 +206,9 @@ const LeftContent = () => {
 					</span>
 					<span>
 						Minimum Amount
-						<span className='mx-1 text-blue-gray-300'>5</span>
+						<span className='mx-1 text-blue-gray-300'>
+							{minAmount.toFixed(2)}
+						</span>
 						USDT
 					</span>
 				</small>
@@ -222,19 +250,19 @@ const LeftContent = () => {
 					Your withdrawal request is under processing.
 				</small>
 			)}
-			<div className='grid '>
-				{/* <div className='space-y-1 '>
+			<div className='grid grid-cols-2 '>
+				<div className='space-y-1 '>
 					<p className='text-xs text-blue-gray-600'>Receive Amount</p>
 					<p className='font-bold text-blue-gray-300'>
 						<span>{receiveAmount.toFixed(2)}</span> USDT
 					</p>
 					<p className='text-xs text-blue-gray-600'>
-						processing fee:{' '}
+						Network fee:{' '}
 						<span className='italic font-bold text-blue-gray-300'>
-							{way === 'crypto' ? '5%' : '3%'}
+							{way === 'crypto' ? '1 USDT' : '0.5 USDT'}
 						</span>{' '}
 					</p>
-				</div> */}
+				</div>
 
 				<div className='flex items-center justify-center '>
 					<button
