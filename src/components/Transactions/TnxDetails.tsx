@@ -5,7 +5,7 @@ interface Props {
 
 const TnxDetails = ({ record }: Props) => {
 	return (
-		<div className='py- px-2 text-[0.6rem] list-none text-blue-gray-400'>
+		<div className='px-2 text-xs font-semibold list-none py- text-blue-gray-200'>
 			<div className='grid grid-cols-2'>
 				<li>Tnx ID</li>
 				<li className='text-end'>{record?._id}</li>

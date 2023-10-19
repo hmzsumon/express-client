@@ -108,12 +108,12 @@ const Transactions = () => {
 													<div
 														key={_id}
 														className={`
-                    ${oddEven} grid grid-cols-4  list-none justify-between items-center px-2 py-2 text-[0.6rem] transition-colors text-blue-gray-200 cursor-pointer 
+                    ${oddEven} grid grid-cols-4 font-semibold  list-none justify-between items-center px-2 py-2 text-sm transition-colors text-blue-gray-200 cursor-pointer 
                     `}
 														onClick={() => handleShowMore(_id)}
 													>
 														<li className=''>
-															<p className='text-[0.6rem] font-normal text-left'>
+															<p className='text-sm text-left'>
 																{new Date(createdAt).toLocaleDateString(
 																	'en-US',
 																	{
