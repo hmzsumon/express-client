@@ -139,7 +139,7 @@ const Mining = () => {
 						<div className='space-x-4 p-4 border-[#2e72d2] border rounded bg-[rgba(46,114,210,.1)]'>
 							<div className='w-full space-x-4 text-center text-cyan-100 '>
 								<span>Basic Rate:</span>
-								<span>+0.2 ELC/h</span>
+								<span>+0.08 ELC/h</span>
 							</div>
 							<div className='space-y-3 '>
 								<h2 className='my-1 font-bold text-center md:text-xl text-cyan-100'>

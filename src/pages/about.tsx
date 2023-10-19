@@ -7,7 +7,7 @@ const About = () => {
 	const router = useRouter();
 	return (
 		<div className='px-4 my-10'>
-			<div className=' space-y-4 '>
+			<div className='space-y-4 '>
 				<Image src='/logo_white_2.png' alt='about' width={100} height={50} />
 			</div>
 			<div className='space-y-4 '>
@@ -21,12 +21,12 @@ const About = () => {
 					</h1>
 				</div>
 
-				{/* <div className=' flex space-x-4'>
+				{/* <div className='flex space-x-4 '>
 					<h2>Company Name:</h2>
 					<h2>Express Life</h2>
 				</div> */}
-				<div className=' space-x-4'>
-					<h2 className=' text-center'>Description:</h2>
+				<div className='space-x-4 '>
+					<h2 className='text-center '>Description:</h2>
 					<p>
 						Express Life is a forward-thinking and innovative company dedicated
 						to providing individuals with the tools and opportunities to explore
@@ -34,8 +34,8 @@ const About = () => {
 						Life Coin (ELC).
 					</p>
 				</div>
-				<div className=' space-y-2'>
-					<h2 className=' text-center text-2xl'>
+				<div className='space-y-2 '>
+					<h2 className='text-2xl text-center '>
 						About Express Life Coin (ELC):
 					</h2>
 					<p>
@@ -46,8 +46,8 @@ const About = () => {
 					</p>
 				</div>
 
-				<div className=' space-y-2'>
-					<h2 className=' text-center text-2xl'>
+				<div className='space-y-2 '>
+					<h2 className='text-2xl text-center '>
 						About Express Life Coin (ELC):
 					</h2>
 					<p>
@@ -58,18 +58,23 @@ const About = () => {
 					</p>
 				</div>
 
-				<div className=' space-y-2'>
-					<h2 className=' text-center text-2xl'>Our Mission:</h2>
+				<div className='space-y-2 '>
+					<h2 className='text-2xl text-center '>Our Mission:</h2>
 					<p>
 						Our mission at Express Life is to empower individuals to participate
 						in the exciting world of cryptocurrency. We strive to provide
 						user-friendly mining services, financial education, and support to
 						help people achieve financial independence and grow their wealth.
 					</p>
+					<p>
+						Our mission, vision, goal is develop community globally for rich our
+						ELC coin and establish e-commerce business and worldwide courier
+						service. Everything complete within 2025 by our road map.
+					</p>
 				</div>
 
-				<div className=' space-y-2'>
-					<h2 className=' text-center text-2xl'>Key Features and Services:</h2>
+				<div className='space-y-2 '>
+					<h2 className='text-2xl text-center '>Key Features and Services:</h2>
 					<ul className='ml-6 list-disc'>
 						<li>
 							ELC Coin Mining
@@ -115,8 +120,8 @@ const About = () => {
 					</ul>
 				</div>
 
-				<div className=' space-y-2'>
-					<h2 className=' text-center text-2xl'>Why Choose Express Life:</h2>
+				<div className='space-y-2 '>
+					<h2 className='text-2xl text-center '>Why Choose Express Life:</h2>
 					<ul className='ml-6 list-disc'>
 						<li>
 							Inclusive Approach
@@ -138,7 +143,7 @@ const About = () => {
 						<li>
 							Privacy and Security
 							<p>
-								Your privacy and data security are of utmost importance to us.
+								Your privacy and data security are of almost importance to us.
 								We employ industry-standard security measures to safeguard your
 								information.
 							</p>
@@ -155,7 +160,7 @@ const About = () => {
 				</div>
 
 				<div className='my-4'>
-					<p className=' text-center text-xs'>
+					<p className='text-xs text-center '>
 						Join Express Life and embark on your journey to financial
 						empowerment with Express Life Coin (ELC)
 					</p>
