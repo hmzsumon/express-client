@@ -77,14 +77,15 @@ const UserInfo = () => {
 					</div>
 				</div>
 			)}
-			<div className=' px-2 mb-2'>
+			<div className='px-2 mb-2 '>
 				<div className='flex items-start space-x-4 p-4  border-[#2e72d2] border rounded bg-[rgba(46,114,210,.1)]'>
-					<div className=' mt-1'>
+					<div className='mt-1 '>
 						<Image src='/tree.png' alt='wallet icon' width={60} height={60} />
 					</div>
 					<div className='space-y-2 '>
 						<h1 className='text-xl font-bold '>
-							{afterJoiningUsers > 0 ? afterJoiningUsers : 0} Users
+							{/* {afterJoiningUsers > 0 ? afterJoiningUsers : 0} Users */}0
+							Users
 						</h1>
 						<p>Global joined after you.</p>
 					</div>
