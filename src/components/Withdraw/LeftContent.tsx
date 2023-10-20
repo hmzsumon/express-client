@@ -97,12 +97,13 @@ const LeftContent = () => {
 		const data = {
 			amount: amount,
 			net_amount: receiveAmount,
-			charge_p: way === 'crypto' ? 0.05 : 0.0,
+			charge_p: way === 'crypto' ? 1 : 0.5,
 			method: {
 				name: way,
 				network: network,
 				address: address,
 				pay_id: payId,
+				binance_id: binanceId,
 			},
 		};
 		createWithdrawRequest(data);
