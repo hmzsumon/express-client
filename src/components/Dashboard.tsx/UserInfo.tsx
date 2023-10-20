@@ -84,8 +84,7 @@ const UserInfo = () => {
 					</div>
 					<div className='space-y-2 '>
 						<h1 className='text-xl font-bold '>
-							{/* {afterJoiningUsers > 0 ? afterJoiningUsers : 0} Users */}0
-							Users
+							{afterJoiningUsers > 0 ? afterJoiningUsers : 0} Users
 						</h1>
 						<p>Global joined after you.</p>
 					</div>
