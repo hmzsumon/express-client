@@ -25,13 +25,14 @@ const Referral = () => {
 	} else {
 		referralLink = `https://${host}/register?referral_id=${user?.customer_id}`;
 	}
+
 	// short referral link
 	const shortReferralLink = referralLink.slice(0, 15) + '...';
 	return (
 		<UserLayout>
 			{/* <UserHeader /> */}
 			<div className='px-4 py-2 '>
-				<div className='grid items-center gap-6 py-4  '>
+				<div className='grid items-center gap-6 py-4 '>
 					<div className='p-8  w-full bg-[rgba(46,114,210,.1)] border-[#2e72d2] border rounded-xl'>
 						<h2 className='mb-6 text-xl font-bold '>Default Referral</h2>
 						<div className='space-y-10 '>
@@ -51,7 +52,12 @@ const Referral = () => {
 								</div>
 							</div>
 
-							<RWebShare data={{ url: referralLink }}>
+							<RWebShare
+								data={{
+									text: `"Welcome to the future of achievement! Are you ready to shape your financial future with innovation and opportunity? Join Express Life, where network marketing and crypto mining come together for unlimited possibilities. As a welcome gift, we offer you 100 ELC (Community Token) upon Joining. Start your crypto journey on right foot! Click here to join and claim your gift: ${referralLink} Together, we will build a prosperous future in the world of crypto. Never miss out!"`,
+								}}
+								disableNative={true}
+							>
 								<div className='flex items-center grid-cols-8 gap-4 cursor-pointer '>
 									<div className='relative flex-1 col-span-7 p-4 bg-btn rounded-xl'>
 										<div className='absolute hidden md:block bottom-1'>
