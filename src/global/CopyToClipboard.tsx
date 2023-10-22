@@ -34,7 +34,7 @@ const CopyToClipboard: React.FC<CopyToClipboardProps> = ({ text, size }) => {
 		<div>
 			<button onClick={copyToClipboard}>
 				<RiFileCopyFill
-					className={` inline-block ml-2 ${
+					className={` inline-block ml-1 ${
 						size ? size : 'text-sm'
 					}  cursor-pointer ${
 						isCopied ? 'text-green-500' : 'text-blue-gray-400'

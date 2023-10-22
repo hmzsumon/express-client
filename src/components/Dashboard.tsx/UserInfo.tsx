@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { formDateWithTime } from '@/utils/functions';
 import { FaWallet } from 'react-icons/fa';
 import { useGetAfterJoiningUserQuery } from '@/features/auth/authApi';
+import CopyToClipboard from '@/global/CopyToClipboard';
 
 const UserInfo = () => {
 	const { user } = useSelector((state: any) => state.auth);
@@ -45,12 +46,18 @@ const UserInfo = () => {
 					</div>
 					<div className='flex space-x-4'>
 						<div className='flex items-center gap-2 md:items-start md:flex-col '>
-							<p className='text-xs text-gray-500 '>User ID</p>
-							<p className='text-xs '>{user?.customer_id}</p>
+							<p className='text-xs text-gray-500 '>User Name</p>
+							<p className='text-xs flex '>
+								{user?.username}
+								<CopyToClipboard text={user?.username} />
+							</p>
 						</div>
 						<div className='hidden space-y-1 md:block '>
-							<p className='text-xs text-gray-500 '>User Type</p>
-							<p className='text-xs '>Regular User</p>
+							<p className='text-xs text-gray-500 '>User Id</p>
+							<p className='text-xs flex '>
+								{user?.customer_id}
+								<CopyToClipboard text={user?.username} />{' '}
+							</p>
 						</div>
 						<div className='hidden space-y-1 md:block '>
 							<p className='text-xs text-gray-500 '>Last login time</p>
@@ -65,8 +72,10 @@ const UserInfo = () => {
 			{show && (
 				<div className='px-10 py-6 space-y-4 md:hidden'>
 					<div className='flex items-center justify-between'>
-						<p className='text-xs text-gray-500 '>User Type</p>
-						<p className='text-xs '>Regular User</p>
+						<p className='text-xs text-gray-500 '>User Id</p>
+						<p className='text-xs flex '>
+							{user?.customer_id} <CopyToClipboard text={user?.customer_id} />
+						</p>
 					</div>
 					<div className='flex items-center justify-between'>
 						<p className='text-xs text-gray-500 '>Last login time</p>

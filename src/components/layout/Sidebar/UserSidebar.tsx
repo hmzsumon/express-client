@@ -18,6 +18,7 @@ import {
 } from '@reduxjs/toolkit/query/react';
 import { type } from 'os';
 import { fetchBaseQueryError } from '@/services/helpers';
+import CopyToClipboard from '@/global/CopyToClipboard';
 
 const UserSidebar = () => {
 	const router = useRouter();
@@ -125,6 +126,11 @@ const UserSidebar = () => {
 		<div className=''>
 			<div className='px-4 '>
 				<p>{user?.email}</p>
+				<p className='flex'>
+					{user?.username}
+					<CopyToClipboard text={user?.username} />
+				</p>
+
 				<div className='flex items-center gap-1 text-sm text-yellow-700 '>
 					<IoDiamondOutline />
 					<p>Regular User</p>
