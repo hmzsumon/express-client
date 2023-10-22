@@ -54,7 +54,8 @@ const Referral = () => {
 
 							<RWebShare
 								data={{
-									text: `"Welcome to the future of achievement! Are you ready to shape your financial future with innovation and opportunity? Join Express Life, where network marketing and crypto mining come together for unlimited possibilities. As a welcome gift, we offer you 100 ELC (Community Token) upon Joining. Start your crypto journey on right foot! Click here to join and claim your gift: ${referralLink} Together, we will build a prosperous future in the world of crypto. Never miss out!"`,
+									text: 'Welcome to the future of achievement! Are you ready to shape your financial future with innovation and opportunity? Join Express Life, where network marketing and crypto mining come together for unlimited possibilities. As a welcome gift, we offer you 100 ELC (Community Token) upon joining. Start your crypto journey on the right foot! Together, we will build a prosperous future in the world of crypto. Never miss out! Click here to join and claim your gift: ',
+									url: referralLink,
 								}}
 								disableNative={true}
 							>
