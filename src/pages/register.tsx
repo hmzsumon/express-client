@@ -15,6 +15,7 @@ import PulseLoader from 'react-spinners/PulseLoader';
 import { CloseIcon } from '@/utils/icons/CommonIcons';
 import { ScaleLoader } from 'react-spinners';
 import CountrySelect from '@/components/Register/CountrySelect';
+import TawkTo3 from '@/global/TawkTo3';
 
 // type referrer
 type Referrer = {
@@ -615,6 +616,7 @@ const Register = () => {
 					</form>
 				</div>
 			</div>
+			<TawkTo3 />
 		</div>
 	);
 };

@@ -10,6 +10,7 @@ import Help from '@components/Home/Help';
 import StartEaring from '@components/Home/StartEaring';
 import { Layout } from '@/components/layout';
 import SimpleSlider from '@/components/Home/Carousel';
+import TawkTo3 from '@/global/TawkTo3';
 
 export default function Home() {
 	return (
@@ -27,6 +28,7 @@ export default function Home() {
 					<Help />
 					<StartEaring />
 				</main>
+				<TawkTo3 />
 			</Layout>
 		</>
 	);

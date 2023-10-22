@@ -10,6 +10,7 @@ import {
 } from '@/features/auth/authApi';
 
 import { PulseLoader } from 'react-spinners';
+import TawkTo3 from '@/global/TawkTo3';
 
 const Login = () => {
 	const referId = process.env.NEXT_PUBLIC_DEFAULT_REFER_ID;
@@ -224,6 +225,7 @@ const Login = () => {
 					/>
 				</div>
 			</div>
+			<TawkTo3 />
 		</>
 	);
 };

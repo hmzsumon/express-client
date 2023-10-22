@@ -6,6 +6,7 @@ import { getCookie } from '@/utils/cookie';
 import { HomeIcon } from '@/utils/icons/CommonIcons';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import TawkTo3 from '../global/TawkTo3';
 
 const dashboard = () => {
 	const { user } = useSelector((state: any) => state.auth);
@@ -18,6 +19,7 @@ const dashboard = () => {
 					<Mining />
 				</div>
 			</div>
+			<TawkTo3 />
 		</UserLayout>
 	);
 };
