@@ -21,9 +21,11 @@ const Referral = () => {
 	// create referral link wit user customer_id
 	let referralLink = '';
 	if (process.env.NODE_ENV === 'development') {
-		referralLink = `http://${host}/register?referral_id=${user?.customer_id}`;
+		referralLink = `Welcome to the future of achievement! Are you ready to shape your financial future with innovation and opportunity? Join Express Life, where network marketing and crypto mining come together for unlimited possibilities. As a welcome gift, we offer you 100 ELC (Community Token) upon joining. Start your crypto journey on the right foot! Together, we will build a prosperous future in the world of crypto. Never miss out! Click here to join and claim your gift: 
+ http://${host}/register?referral_id=${user?.customer_id}`;
 	} else {
-		referralLink = `https://${host}/register?referral_id=${user?.customer_id}`;
+		referralLink = `Welcome to the future of achievement! Are you ready to shape your financial future with innovation and opportunity? Join Express Life, where network marketing and crypto mining come together for unlimited possibilities. As a welcome gift, we offer you 100 ELC (Community Token) upon joining. Start your crypto journey on the right foot! Together, we will build a prosperous future in the world of crypto. Never miss out! Click here to join and claim your gift: 
+ https://${host}/register?referral_id=${user?.customer_id}`;
 	}
 
 	// short referral link
@@ -54,7 +56,6 @@ const Referral = () => {
 
 							<RWebShare
 								data={{
-									text: 'Welcome to the future of achievement! Are you ready to shape your financial future with innovation and opportunity? Join Express Life, where network marketing and crypto mining come together for unlimited possibilities. As a welcome gift, we offer you 100 ELC (Community Token) upon joining. Start your crypto journey on the right foot! Together, we will build a prosperous future in the world of crypto. Never miss out! Click here to join and claim your gift: ',
 									url: referralLink,
 								}}
 								disableNative={true}
