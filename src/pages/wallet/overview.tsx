@@ -34,7 +34,9 @@ const Overview = () => {
 						<div className='flex items-start space-x-4 p-4 border-[#2e72d2] border rounded bg-[rgba(46,114,210,.1)]'>
 							<FaCoins className='text-3xl text-[#2e72d2]' />
 							<div className='space-y-2 '>
-								<h1 className='text-xl font-bold '>Total ELC Coin</h1>
+								<h1 className='text-xl font-bold '>
+									Total ELC <sup className='text-xs text-blue-800'>(CT)</sup>
+								</h1>
 								<p>
 									{Number(
 										user?.elc_coin ? user?.total_earing : 0

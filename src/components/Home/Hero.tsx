@@ -49,7 +49,9 @@ const Hero = () => {
 						<div className='flex items-center space-x-2'>
 							<AiFillGift className='text-2xl text-cyan-700' />
 							<div className='flex items-center space-x-'>
-								<p className='text-xl'>Join and Get 100 ELC coin</p>
+								<p className='text-xl'>
+									Join and Get 100 ELC <sup>(CT)</sup>
+								</p>
 								<MdKeyboardArrowRight className='text-xl font-semibold text-gray-500' />
 							</div>
 						</div>
