@@ -44,7 +44,7 @@ const Help = () => {
 							</p>
 							<button className='w-6/12 py-2 font-bold rounded-md bg-btn'>
 								<a
-									href='https://t.me/expresslife2023'
+									href='https://tawk.to/chat/653471b8a84dd54dc483ae9e/1hdadoeot'
 									target='_blank'
 									rel='noopener noreferrer'
 									className='text-white'
