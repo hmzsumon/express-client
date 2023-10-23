@@ -101,7 +101,7 @@ const Overview = () => {
 							<div className='space-y-2 '>
 								<h1 className='text-xl font-bold '>Total Send Money</h1>
 								<p>
-									{Number(user?.total_withdraw).toLocaleString('en-US', {
+									{Number(user?.total_send_amount).toLocaleString('en-US', {
 										minimumFractionDigits: 2,
 										maximumFractionDigits: 2,
 									})}{' '}
@@ -116,7 +116,7 @@ const Overview = () => {
 							<div className='space-y-2 '>
 								<h1 className='text-xl font-bold '>Total Receive Money</h1>
 								<p>
-									{Number(user?.total_withdraw).toLocaleString('en-US', {
+									{Number(user?.total_receive_amount).toLocaleString('en-US', {
 										minimumFractionDigits: 2,
 										maximumFractionDigits: 2,
 									})}{' '}
