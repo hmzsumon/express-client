@@ -46,7 +46,7 @@ const Deposit = () => {
 	const [depositMethod, setDepositMethod] = useState<any>(method);
 	const [textError, setTextError] = useState<string>('');
 	const [tnxError, setTnxError] = useState<string>('');
-	const [amount, setAmount] = useState<number>(10);
+	const [amount, setAmount] = useState<number>(11);
 	const [transactionId, setTransactionId] = useState<string>('');
 	const [open, setOpen] = useState(false);
 	const [open2, setOpen2] = useState(false);
@@ -61,13 +61,13 @@ const Deposit = () => {
 
 	const handleChange = (e: any) => {
 		setAmount(e.target.value);
-		if (e.target.value < 10) {
+		if (e.target.value < 11) {
 			setTextError('Minimum amount is $10');
 		} else {
 			setTextError('');
 		}
 
-		if (e.target.value >= 10) {
+		if (e.target.value >= 11) {
 			setBonusTex(true);
 		} else {
 			setBonusTex(false);
@@ -76,7 +76,7 @@ const Deposit = () => {
 
 	const handleSubmit = async () => {
 		if (amount < 10) {
-			setTextError('Minimum amount is $10');
+			setTextError('Minimum amount is $11');
 		} else if (!transactionId) {
 			setTnxError('Please enter a valid transaction id');
 			return;
@@ -206,6 +206,7 @@ const Deposit = () => {
 												Enter Amount
 											</label>
 											<input
+												placeholder='Enter Amount >11'
 												className={`px-4 py-1 ${
 													textError && 'border-red-500'
 												} text-blue-gray-200 bg-transparent border rounded focus:outline-none`}
