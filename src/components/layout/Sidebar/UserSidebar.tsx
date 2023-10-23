@@ -116,7 +116,7 @@ const UserSidebar = () => {
 	useEffect(() => {
 		if (isSuccess) {
 			toast.success('Logout Successful');
-			router.push('/');
+			router.push('/login');
 		}
 		if (isError) {
 			toast.error((error as fetchBaseQueryError).data.message);
