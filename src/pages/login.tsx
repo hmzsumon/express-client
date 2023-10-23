@@ -1,9 +1,10 @@
+'use client';
 import React, { use, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { fetchBaseQueryError } from '@/services/helpers';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import {
 	useLoginUserMutation,
 	useResendVerificationEmailMutation,
