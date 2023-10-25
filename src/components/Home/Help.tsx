@@ -37,14 +37,15 @@ const Help = () => {
 					<div className='flex items-start space-x-4 p-4 border-[#2e72d2] border rounded bg-[rgba(46,114,210,.1)]'>
 						<MdSupportAgent className='text-8xl text-[#2e72d2]' />
 						<div className='space-y-2 '>
-							<h1 className='text-xl font-bold '>24/7 Chat Support</h1>
+							<h1 className='text-xl font-bold '>Global Social Hub</h1>
 							<p>
-								Get 24/7 chat support with our friendly customer service agents
-								at your service
+								Join our Telegram Community Group! Connect with fellow crypto
+								and network marketing enthusiasts. Be part of the Express
+								Life revolution.
 							</p>
 							<button className='w-6/12 py-2 font-bold rounded-md bg-btn'>
 								<a
-									href='https://tawk.to/chat/653471b8a84dd54dc483ae9e/1hdadoeot'
+									href='https://t.me/expresslifeukofficial'
 									target='_blank'
 									rel='noopener noreferrer'
 									className='text-white'

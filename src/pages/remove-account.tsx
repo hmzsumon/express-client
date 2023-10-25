@@ -16,7 +16,7 @@ const RemoveAccount = () => {
 						</p>
 						<div>
 							<a
-								href='https://tawk.to/chat/653471b8a84dd54dc483ae9e/1hdadoeot'
+								href='https://t.me/expresslifeukofficial'
 								target='_blank'
 								className='block px-4 py-2 mt-4 text-sm font-bold text-center bg-yellow-700 rounded text-blue-gray-800 hover:bg-yellow-800'
 							>
