@@ -120,6 +120,18 @@ const DepositRecords = ({ records }: any) => {
 															Successful
 														</p>
 													)}
+
+													{status === 'pending' && (
+														<p className='capitalize text-center text-[#FBC02D]'>
+															Pending
+														</p>
+													)}
+
+													{status === 'rejected' && (
+														<p className='capitalize text-center text-[#D32F2F]'>
+															Rejected
+														</p>
+													)}
 												</li>
 
 												<li className='flex items-center justify-end '>

@@ -43,8 +43,22 @@ const Deposit = ({ record }: Props) => {
 					{record?.status === 'approved' && (
 						<p className='capitalize  text-[#388E3C]'>Success</p>
 					)}
+
+					{record?.status === 'pending' && (
+						<p className='capitalize  text-[#FBC02D]'>Pending</p>
+					)}
+
+					{record?.status === 'rejected' && (
+						<p className='capitalize  text-[#D32F2F]'>Rejected</p>
+					)}
 				</li>
 			</div>
+			{record?.status === 'rejected' && (
+				<div className='grid grid-cols-2'>
+					<li>Reason</li>
+					<li className='text-red-400 text-end'>{record?.reason}</li>
+				</div>
+			)}
 		</div>
 	);
 };

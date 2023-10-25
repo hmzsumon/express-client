@@ -99,7 +99,7 @@ const Notification = () => {
 					<div className='relative '>
 						<FaBell className='text-xl cursor-pointer' />
 						{count > 0 && (
-							<span className='absolute top-0 inline-flex items-center justify-center w-5 h-5 p-2 text-xs font-bold leading-none transform translate-x-1/2 -translate-y-1/2 bg-red-500 rounded-full text-blue-gray-100 left-0'>
+							<span className='absolute top-0 left-0 inline-flex items-center justify-center w-5 h-5 p-2 text-xs font-bold leading-none transform translate-x-1/2 -translate-y-1/2 bg-red-500 rounded-full text-blue-gray-100'>
 								<span>{count > 9 ? '9+' : count}</span>
 							</span>
 						)}
@@ -113,7 +113,7 @@ const Notification = () => {
 								onClick={() => {
 									handleUpdateNotification(notification?._id);
 								}}
-								className=' list-none'
+								className='list-none '
 							>
 								<MenuItem color='blueGray' className='hover:bg-blueGray-100'>
 									<div className='flex items-center justify-between'>
@@ -147,6 +147,11 @@ const Notification = () => {
 						<p className='text-blue-gray-100'>
 							{selectedNotification?.description}
 						</p>
+						{selectedNotification?.reason && (
+							<p className='my-2 text-red-500'>
+								Reason: {selectedNotification?.reason}
+							</p>
+						)}
 					</DialogBody>
 
 					<DialogFooter>

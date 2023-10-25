@@ -75,7 +75,7 @@ const Deposit = () => {
 	};
 
 	const handleSubmit = async () => {
-		if (amount < 10) {
+		if (amount < 11) {
 			setTextError('Minimum amount is $11');
 		} else if (!transactionId) {
 			setTnxError('Please enter a valid transaction id');
@@ -92,7 +92,7 @@ const Deposit = () => {
 			// console.log('data', data);
 
 			createDepositRequest(data);
-			setAmount(10);
+			setAmount(11);
 		}
 	};
 
@@ -248,7 +248,7 @@ const Deposit = () => {
 									<div className='px-4 py-4 space-y-2 text-xs bg-[#030039] md:text-md'>
 										<div className='flex items-center justify-between '>
 											<p className='text-blue-gray-400 '>Minimum deposit</p>
-											<p className='text-blue-gray-100 '> &gt;10 USDT </p>
+											<p className='text-blue-gray-100 '> &gt;11 USDT </p>
 										</div>
 										<div className='flex items-center justify-between '>
 											<p className='text-blue-gray-400 '>Expected arrival</p>
@@ -273,7 +273,7 @@ const Deposit = () => {
 							<button
 								className='w-full py-1 font-bold rounded-sm bg-btn text-blue-gray-100 disabled:opacity-50 disabled:cursor-not-allowed '
 								onClick={handleSubmit}
-								disabled={isLoading || amount < 10 || !transactionId}
+								disabled={isLoading || amount < 11 || !transactionId}
 							>
 								Confirm
 							</button>
