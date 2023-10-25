@@ -110,8 +110,8 @@ const UserInfo = () => {
 					<div className='space-y-2 '>
 						<h1 className='text-xl font-bold '>
 							{afterJoiningUsers > 0
-								? afterJoiningUsers + demoCount
-								: demoCount}{' '}
+								? Number(afterJoiningUsers + demoCount).toLocaleString('en-US')
+								: Number(demoCount).toLocaleString('en-US')}{' '}
 							Users
 						</h1>
 						<p>Global joined after you.</p>
