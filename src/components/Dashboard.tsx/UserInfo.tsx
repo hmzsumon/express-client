@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { RiEdit2Fill } from 'react-icons/ri';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
@@ -13,6 +13,22 @@ const UserInfo = () => {
 	const { data } = useGetAfterJoiningUserQuery(undefined);
 	const { afterJoiningUsers } = data || {};
 	const [show, setShow] = useState(false);
+	const [demoCount, setDemoCount] = useState(0);
+
+	useEffect(() => {
+		if (user && user.createdAt) {
+			const createdTime = new Date(user.createdAt);
+			const currentTime = new Date();
+			const diff = currentTime.getTime() - createdTime.getTime();
+			// diff converted to minutes
+			const minutes = Math.floor(diff / 1000 / 60);
+			// minutes converted to seconds
+			const seconds = minutes * 60;
+			// seconds divided by 45
+			const count = Math.floor(seconds / 45);
+			setDemoCount(count);
+		}
+	}, [user]);
 
 	const [open, setOpen] = useState(false);
 	const handleOpen = () => setOpen(!open);
@@ -47,14 +63,14 @@ const UserInfo = () => {
 					<div className='flex space-x-4'>
 						<div className='flex items-center gap-2 md:items-start md:flex-col '>
 							<p className='text-xs text-gray-500 '>User Name</p>
-							<p className='text-xs flex '>
+							<p className='flex text-xs '>
 								{user?.username}
 								<CopyToClipboard text={user?.username} />
 							</p>
 						</div>
 						<div className='hidden space-y-1 md:block '>
 							<p className='text-xs text-gray-500 '>User Id</p>
-							<p className='text-xs flex '>
+							<p className='flex text-xs '>
 								{user?.customer_id}
 								<CopyToClipboard text={user?.username} />{' '}
 							</p>
@@ -73,7 +89,7 @@ const UserInfo = () => {
 				<div className='px-10 py-6 space-y-4 md:hidden'>
 					<div className='flex items-center justify-between'>
 						<p className='text-xs text-gray-500 '>User Id</p>
-						<p className='text-xs flex '>
+						<p className='flex text-xs '>
 							{user?.customer_id} <CopyToClipboard text={user?.customer_id} />
 						</p>
 					</div>
@@ -93,7 +109,10 @@ const UserInfo = () => {
 					</div>
 					<div className='space-y-2 '>
 						<h1 className='text-xl font-bold '>
-							{afterJoiningUsers > 0 ? afterJoiningUsers : 0} Users
+							{afterJoiningUsers > 0
+								? afterJoiningUsers + demoCount
+								: demoCount}{' '}
+							Users
 						</h1>
 						<p>Global joined after you.</p>
 					</div>

@@ -1,7 +1,10 @@
 import UserInfo from '@/components/Dashboard.tsx/UserInfo';
 import Mining from '@/components/Mining/Mining';
 import UserLayout from '@/components/layout/UserLayout';
-import { useLoadUserQuery } from '@/features/auth/authApi';
+import {
+	useGetUserDemoCountQuery,
+	useLoadUserQuery,
+} from '@/features/auth/authApi';
 import { getCookie } from '@/utils/cookie';
 import { HomeIcon } from '@/utils/icons/CommonIcons';
 import React from 'react';
@@ -10,7 +13,8 @@ import TawkTo3 from '../global/TawkTo3';
 
 const dashboard = () => {
 	const { user } = useSelector((state: any) => state.auth);
-	useLoadUserQuery(user?._id);
+	useLoadUserQuery(undefined, { refetchOnMountOrArgChange: true });
+
 	return (
 		<UserLayout>
 			<div>

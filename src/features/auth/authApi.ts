@@ -213,6 +213,11 @@ export const authApi = apiSlice.injectEndpoints({
 				method: 'PUT',
 			}),
 		}),
+
+		// get user_demo_count
+		getUserDemoCount: builder.query<any, any>({
+			query: () => `/user-demo-count`,
+		}),
 	}),
 });
 
@@ -238,4 +243,5 @@ export const {
 	useActivateUserMutation,
 	useGetAfterJoiningUserQuery,
 	useFindUserByEmailOrUsernameMutation,
+	useGetUserDemoCountQuery,
 } = authApi;
