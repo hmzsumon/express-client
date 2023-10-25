@@ -71,10 +71,22 @@ const Withdraw = ({ record }: Props) => {
 						<p className='capitalize  text-[#388E3C]'>Success</p>
 					)}
 					{record?.status === 'pending' && (
-						<p className='capitalize  text-yellow-700 '>Processing</p>
+						<p className='text-yellow-700 capitalize '>Processing</p>
+					)}
+
+					{record?.status === 'rejected' && (
+						<p className='text-red-600 capitalize '>Rejected</p>
 					)}
 				</li>
 			</div>
+			{record?.status === 'rejected' && (
+				<div className='grid grid-cols-2'>
+					<li>
+						<p className='capitalize'>Reason</p>
+					</li>
+					<li className='text-red-400 text-end'>{record?.rejected_reason}</li>
+				</div>
+			)}
 			<div className='grid grid-cols-2'>
 				<li>Date</li>
 				<li className='text-end'>
