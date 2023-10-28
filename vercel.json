@@ -1,10 +1,11 @@
 {
-	"routes": {
-		"/api/*": {
+	"routes": [
+		{
+			"src": "/api/.*",
 			"methods": ["GET", "POST"],
 			"headers": ["Authorization", "Content-Type"],
 			"allowCredentials": false,
-			"allowOrigin": "*"
+			"allow": ["*"]
 		}
-	}
+	]
 }
