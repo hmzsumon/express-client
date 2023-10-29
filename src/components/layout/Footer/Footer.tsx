@@ -11,27 +11,27 @@ const communities = [
 		id: 1,
 		name: 'Facebook',
 		icon: <FaFacebookF />,
-		url: 'https://www.facebook.com/binance',
+		url: 'https://t.me/expresslifeukofficial',
 	},
 	{
 		id: 2,
 		name: 'Twitter',
 		icon: <SlSocialTwitter />,
-		url: 'https://twitter.com/binance',
+		url: 'https://t.me/expresslifeukofficial',
 	},
 
 	{
 		id: 4,
 		name: 'Youtube',
 		icon: <SlSocialYoutube />,
-		url: 'https://www.youtube.com/binance',
+		url: 'https://t.me/expresslifeukofficial',
 	},
 
 	{
 		id: 6,
 		name: 'Telegram',
 		icon: <FaTelegram />,
-		url: 'https://t.me/binanceexchange',
+		url: 'https://t.me/expresslifeukofficial',
 	},
 ];
 const Footer = () => {
@@ -70,9 +70,16 @@ const Footer = () => {
 					<div className='flex items-center justify-between '>
 						{communities.map((community) => {
 							return (
-								<div key={community.id} className=''>
-									<div className='text-2xl'>{community.icon}</div>
-								</div>
+								<button key={community.id} className=''>
+									<a
+										href={community.url}
+										target='_blank'
+										rel='noopener noreferrer'
+										className='text-2xl'
+									>
+										{community.icon}
+									</a>
+								</button>
 							);
 						})}
 					</div>
