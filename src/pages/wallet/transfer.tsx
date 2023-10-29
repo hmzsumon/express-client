@@ -211,10 +211,10 @@ const Transfer = () => {
 									<p>Email</p>
 									<p className='text-gray-500 '>{recipient?.email}</p>
 								</li>
-								<li className='flex items-center justify-between '>
+								{/* <li className='flex items-center justify-between '>
 									<p>Phone</p>
 									<p className='text-gray-500 '>{recipient?.phone}</p>
-								</li>
+								</li> */}
 							</div>
 							<hr className='my-3' />
 							<div className='my-2 '>
