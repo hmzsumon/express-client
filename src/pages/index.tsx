@@ -11,7 +11,6 @@ import StartEaring from '@components/Home/StartEaring';
 import { Layout } from '@/components/layout';
 import SimpleSlider from '@/components/Home/Carousel';
 import TawkTo3 from '@/global/TawkTo3';
-import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
 
 export default function Home() {
 	return (
@@ -29,11 +28,7 @@ export default function Home() {
 					<Help />
 					<StartEaring />
 				</main>
-				{/* <TawkTo3 /> */}
-				<TawkMessengerReact
-					propertyId='653d41cef2439e1631e96f93'
-					widgetId='1hdrki4c6'
-				/>
+				<TawkTo3 />
 			</Layout>
 		</>
 	);

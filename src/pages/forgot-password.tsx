@@ -35,7 +35,7 @@ const ForgotPassword = () => {
 		if (isError) {
 			setStateError(true);
 			setErrorText(
-				'WFC account does not exist. Please try again or create a new account.'
+				'This account does not exist. Please try again or create a new account.'
 			);
 		}
 
