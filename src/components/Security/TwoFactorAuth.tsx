@@ -71,7 +71,10 @@ const TwoFactorAuth = () => {
 			icon: <PasswordIcon h={35} w={35} />,
 			title: 'Login Password',
 			description: 'Login password is used to log in to your account.',
-			callback: () => {},
+			callback: () => {
+				router.push('/change-password');
+			},
+			is_done: true,
 			btnText: 'Manage',
 		},
 		{

@@ -167,7 +167,7 @@ const UserSidebar = () => {
 				</ul>
 			</div>
 			<hr />
-			<div className='px-4 my-8'>
+			<div className='px-4 my-8 space-y-4 '>
 				<button
 					className='flex items-center gap-2 hover:text-red-500 '
 					onClick={handleLogout}
@@ -175,6 +175,14 @@ const UserSidebar = () => {
 					<MdLogout />
 					<p>Logout</p>
 				</button>
+				{/* For Support Email */}
+
+				<a
+					href='mailto:support@expresslife.uk '
+					className='flex items-center justify-center w-full gap-2 py-2 rounded-md bg-btn hover:bg-btnHover '
+				>
+					Support
+				</a>
 			</div>
 		</div>
 	);
