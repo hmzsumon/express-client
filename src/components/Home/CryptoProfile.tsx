@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import React from 'react';
+import Faq from './Faq';
 
 const data = [
 	{
@@ -63,12 +64,11 @@ const CryptoProfile = () => {
 					</button>
 				</div>
 			</div>
-			<div className='flex items-center justify-center '>
-				<img
-					src='./images/icons/icon4.png'
-					alt=''
-					className='w-64 rounded-2xl'
-				/>
+			<div className=''>
+				<h1 className='text-xl font-bold gradient-text md:text-4xl '>
+					Frequently Asked Questions
+				</h1>
+				<Faq />
 			</div>
 		</div>
 	);
