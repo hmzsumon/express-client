@@ -42,13 +42,9 @@ const TwoFactorAuth = () => {
 			icon: <EmailIcon h={35} w={35} />,
 			title: 'Email',
 			description: 'Protect your account and transactions.',
-			callback: () =>
-				router.push({
-					pathname: '/change-email',
-					query: { email: user?.email },
-				}),
+			callback: () => {},
 			btnText: 'Manage',
-			is_done: user?.email_verified,
+			is_done: false,
 			done_text: maskEmail(user?.email ? user?.email : 'example@gmail.com'),
 		},
 		{
