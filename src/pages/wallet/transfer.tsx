@@ -69,6 +69,11 @@ const Transfer = () => {
 
 	// handle transfer
 	const handleTransfer = () => {
+		// check if user is active
+		if (sender?.is_active === false) {
+			toast.error('Your account is not active, please active your account');
+			return;
+		}
 		if (!amount) {
 			setErrorText('Amount is required');
 			return;
