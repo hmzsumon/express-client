@@ -33,6 +33,7 @@ const Transfer = () => {
 	const [password, setPassword] = useState<string>('');
 	const [showPassword, setShowPassword] = useState<boolean>(false);
 	const [passwordError, setPasswordError] = useState<boolean>(false);
+	const [btnDisAbled, setBtnDisAbled] = useState<boolean>(false);
 	const [
 		findUserByEmailOrUsername,
 		{ data, isLoading, isError, isSuccess, error },
@@ -69,6 +70,8 @@ const Transfer = () => {
 
 	// handle transfer
 	const handleTransfer = () => {
+		// btn disabled
+		setBtnDisAbled(true);
 		// check if user is active
 		if (sender?.is_active === false) {
 			toast.error('Your account is not active, please active your account');
@@ -103,6 +106,17 @@ const Transfer = () => {
 
 		sendMoney(data);
 	};
+
+	// after 10 seconds set btn disabled to false
+	useEffect(() => {
+		setTimeout(() => {
+			setBtnDisAbled(false);
+		}, 10000);
+
+		return () => {
+			setBtnDisAbled(false);
+		};
+	}, []);
 
 	useEffect(() => {
 		if (isSuccess) {
@@ -316,7 +330,9 @@ const Transfer = () => {
 											!recipient ||
 											!amount ||
 											amount < 1 ||
-											!password
+											!password ||
+											sender?.is_active === false ||
+											btnDisAbled
 										}
 									>
 										{isLoading ? (
