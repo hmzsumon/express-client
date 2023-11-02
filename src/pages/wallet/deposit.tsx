@@ -222,7 +222,7 @@ const Deposit = () => {
 
 										<div className='relative flex flex-col gap-1 '>
 											<label className='mb-1 ml-1 text-sm font-semibold text-gray-400 '>
-												Trx ID / Order ID
+												Txid / TxHash
 											</label>
 											<input
 												className={`px-4 py-1 text-blue-gray-200 bg-transparent border rounded  focus:outline-none`}
