@@ -17,6 +17,12 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
 	const router = useRouter();
 	// path
 
+	useEffect(() => {
+		if (user?.is_block) {
+			router.push('/suspended');
+		}
+	}, [user]);
+
 	const [open, setOpen] = React.useState(false);
 	const handleOpen = () => setOpen(!open);
 
