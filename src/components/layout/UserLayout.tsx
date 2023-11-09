@@ -1,4 +1,4 @@
-import React, { use, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import UserHeader from './UserHeader/UserHeader';
 import UserSide from './UserSide/UserSide';
 import { useSelector } from 'react-redux';
@@ -20,6 +20,11 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
 	useEffect(() => {
 		if (user?.is_block) {
 			router.push('/suspended');
+		}
+
+		// check if user role is user or not
+		if (user?.role !== 'user') {
+			router.push('/login');
 		}
 	}, [user]);
 
