@@ -141,7 +141,7 @@ const UserSidebar = () => {
 
 				<div className='flex items-center gap-1 text-sm text-yellow-700 '>
 					<IoDiamondOutline />
-					<p>Regular User</p>
+					{user?.rank === 'user' ? <p>Regular User</p> : <p>{user?.rank}</p>}
 				</div>
 				<div>
 					<div className='mt-2 '>
