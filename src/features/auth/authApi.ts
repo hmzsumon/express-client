@@ -228,6 +228,15 @@ export const authApi = apiSlice.injectEndpoints({
 		getUserDemoCount: builder.query<any, any>({
 			query: () => `/user-demo-count`,
 		}),
+
+		// claim rank bonus
+		claimRankBonus: builder.mutation<any, any>({
+			query: () => ({
+				url: `/claim-rank-bonus`,
+				method: 'PUT',
+			}),
+			invalidatesTags: ['User'],
+		}),
 	}),
 });
 
@@ -255,4 +264,5 @@ export const {
 	useGetAfterJoiningUserQuery,
 	useFindUserByEmailOrUsernameMutation,
 	useGetUserDemoCountQuery,
+	useClaimRankBonusMutation,
 } = authApi;

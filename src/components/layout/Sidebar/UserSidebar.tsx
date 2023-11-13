@@ -106,6 +106,14 @@ const UserSidebar = () => {
 			calBack: () => console.log('hello'),
 			isSubMenu: false,
 		},
+		{
+			id: 9,
+			name: 'Rank & Incentive',
+			link: '/rank',
+			icon: <SlBadge />,
+			calBack: () => router.push('/rank'),
+			isSubMenu: false,
+		},
 	];
 
 	// handle logout
