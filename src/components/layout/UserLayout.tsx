@@ -38,7 +38,8 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
 		if (
 			user &&
 			!user.is_active &&
-			!user?.is_newUser &&
+			user?.is_newUser &&
+			!user.is_subscribe &&
 			router.pathname !== '/wallet/deposit' &&
 			router.pathname !== '/activate'
 		) {
@@ -49,7 +50,7 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
 		if (
 			user &&
 			!user.is_subscribe &&
-			user?.is_newUser &&
+			!user.is_newUser &&
 			router.pathname !== '/wallet/deposit' &&
 			router.pathname !== '/subscribe'
 		) {

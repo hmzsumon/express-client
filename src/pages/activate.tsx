@@ -79,7 +79,6 @@ const Activate = () => {
 									<button
 										className='w-full py-3 font-semibold text-gray-100 rounded bg-btn disabled:opacity-50 disabled:cursor-not-allowed'
 										onClick={handleSubmit}
-										disabled
 									>
 										{isLoading ? (
 											<div className='flex items-center justify-center '>
