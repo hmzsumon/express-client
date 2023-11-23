@@ -237,6 +237,15 @@ export const authApi = apiSlice.injectEndpoints({
 			}),
 			invalidatesTags: ['User'],
 		}),
+
+		// reactivation user
+		reactivationUser: builder.mutation<any, any>({
+			query: () => ({
+				url: `/reactivate-user`,
+				method: 'PUT',
+			}),
+			invalidatesTags: ['User'],
+		}),
 	}),
 });
 
@@ -265,4 +274,5 @@ export const {
 	useFindUserByEmailOrUsernameMutation,
 	useGetUserDemoCountQuery,
 	useClaimRankBonusMutation,
+	useReactivationUserMutation,
 } = authApi;
