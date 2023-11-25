@@ -1,4 +1,3 @@
-import { setCookie } from '@/utils/cookie';
 import { apiSlice } from '../api/apiSlice';
 import { setUser, logoutUser } from './authSlice';
 export interface IUser {
