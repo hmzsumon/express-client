@@ -41,7 +41,8 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
 			user?.is_newUser &&
 			!user.is_subscribe &&
 			router.pathname !== '/wallet/deposit' &&
-			router.pathname !== '/activate'
+			router.pathname !== '/activate' &&
+			user?.total_pay < 11
 		) {
 			setOpen(true);
 		}
