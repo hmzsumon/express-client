@@ -37,7 +37,7 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
 	useEffect(() => {
 		if (
 			user &&
-			user?.total_pay < 10 &&
+			user?.total_pay > 11 &&
 			!user.is_active &&
 			user?.is_newUser &&
 			!user.is_subscribe &&
