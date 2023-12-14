@@ -57,7 +57,7 @@ const Activate = () => {
 							className='mx-auto'
 						/>
 					</div>
-					{user?.is_active ? (
+					{user?.is_activation_done ? (
 						<h1 className='text-2xl font-semibold text-white'>
 							Your account is activated successfully
 						</h1>
@@ -69,7 +69,7 @@ const Activate = () => {
 					<div className='my-6'>
 						<div className='space-y-4 text-white '>
 							<div className='my-6 space-y-4'>
-								{user?.is_active ? (
+								{user?.is_activation_done ? (
 									<Link href='/dashboard'>
 										<button className='w-full py-3 font-semibold text-gray-100 rounded bg-btn'>
 											Go to Dashboard

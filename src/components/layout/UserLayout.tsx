@@ -37,10 +37,7 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
 	useEffect(() => {
 		if (
 			user &&
-			user?.total_pay > 11 &&
-			!user.is_active &&
-			user?.is_newUser &&
-			!user.is_subscribe &&
+			!user.is_activation_done &&
 			router.pathname !== '/wallet/deposit' &&
 			router.pathname !== '/activate'
 		) {
@@ -50,8 +47,7 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
 		// check if user is subscribed
 		if (
 			user &&
-			!user.is_subscribe &&
-			!user.is_newUser &&
+			!user.is_subscribe_done &&
 			router.pathname !== '/wallet/deposit' &&
 			router.pathname !== '/subscribe'
 		) {

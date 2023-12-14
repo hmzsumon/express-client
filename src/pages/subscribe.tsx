@@ -58,7 +58,7 @@ const Subscribe = () => {
 							className='mx-auto'
 						/>
 					</div>
-					{user?.is_active ? (
+					{user?.is_subscribe_done ? (
 						<h1 className='text-2xl font-semibold text-white'>
 							Your account is Reactivate successfully
 						</h1>
@@ -70,7 +70,7 @@ const Subscribe = () => {
 					<div className='my-6'>
 						<div className='space-y-4 text-white '>
 							<div className='my-6 space-y-4'>
-								{user?.is_active ? (
+								{user?.is_subscribe_done ? (
 									<Link href='/dashboard'>
 										<button className='w-full py-3 font-semibold text-gray-100 rounded bg-btn'>
 											Go to Dashboard
