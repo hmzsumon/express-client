@@ -31,7 +31,6 @@ const Transfer = () => {
 	const [findUser, setFindUser] = useState(false);
 	const [amount, setAmount] = useState(0);
 	const [recipient, setRecipient] = useState<any>({});
-
 	const [btnDisAbled, setBtnDisAbled] = useState<boolean>(false);
 	const [verify, setVerify] = useState<boolean>(false);
 	const [

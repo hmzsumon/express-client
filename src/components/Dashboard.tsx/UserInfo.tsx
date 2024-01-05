@@ -72,14 +72,18 @@ const UserInfo = () => {
 							<p className='text-xs text-gray-500 '>User Id</p>
 							<p className='flex text-xs '>
 								{user?.customer_id}
-								<CopyToClipboard text={user?.username} />{' '}
+								<CopyToClipboard text={user?.customer_id} />{' '}
 							</p>
 						</div>
 						<div className='hidden space-y-1 md:block '>
-							<p className='text-xs text-gray-500 '>Last login time</p>
+							<p className='text-xs text-gray-500 '>Created At</p>
+							<p className='text-xs '>{formDateWithTime(user?.createdAt)} </p>
+						</div>
+
+						<div className='hidden space-y-1 md:block '>
+							<p className='text-xs text-gray-500 '>Last Subscribe Date </p>
 							<p className='text-xs '>
-								{formDateWithTime(user?.last_login_info.date)} (
-								{user?.last_login_info.ip_address})
+								{formDateWithTime(user?.last_subscription_date)}
 							</p>
 						</div>
 					</div>
@@ -94,10 +98,13 @@ const UserInfo = () => {
 						</p>
 					</div>
 					<div className='flex items-center justify-between'>
-						<p className='text-xs text-gray-500 '>Last login time</p>
+						<p className='text-xs text-gray-500 '>Created At </p>
+						<p className='text-xs '>{formDateWithTime(user?.createdAt)}</p>
+					</div>
+					<div className='flex items-center justify-between'>
+						<p className='text-xs text-gray-500 '>Last Subscribe Date </p>
 						<p className='text-xs '>
-							{formDateWithTime(user?.last_login_info.date)} (
-							{user?.last_login_info.ip_address})
+							{formDateWithTime(user?.last_subscription_date)}
 						</p>
 					</div>
 				</div>

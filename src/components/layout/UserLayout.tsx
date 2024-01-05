@@ -33,6 +33,9 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
 	const [open2, setOpen2] = React.useState(false);
 	const handleOpen2 = () => setOpen2(!open2);
 
+	const [open3, setOpen3] = React.useState(false);
+	const handleOpen3 = () => setOpen3(!open3);
+
 	// check if user is activated
 	useEffect(() => {
 		if (
@@ -124,6 +127,46 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
 							variant='text'
 							color='red'
 							onClick={handleOpen2}
+							className='mr-1'
+						>
+							<span>Cancel</span>
+						</Button>
+						<Link href={user?.m_balance < 5 ? '/wallet/deposit' : '/subscribe'}>
+							<Button
+								variant='gradient'
+								onClick={handleOpen2}
+								className='bg-btn'
+							>
+								<span>{user?.m_balance < 5 ? 'Deposit' : 'Subscribe'}</span>
+							</Button>
+						</Link>
+					</DialogFooter>
+				</Dialog>
+			</>
+
+			{/* Dialog3 for yappy new yer */}
+			<>
+				<Dialog
+					open={open3}
+					handler={handleOpen3}
+					size='xs'
+					className='border-[#2e72d2] border rounded bg-[rgb(17,15,41)]'
+				>
+					<DialogHeader className=' text-blue-gray-100'>
+						Subscription!
+					</DialogHeader>
+					<hr className=' border border-[#2e72d2] ' />
+					<DialogBody>
+						<p className='text-blue-gray-100'>
+							Your subscription is expired. Please subscribe and earn more.
+						</p>
+					</DialogBody>
+
+					<DialogFooter>
+						<Button
+							variant='text'
+							color='red'
+							onClick={handleOpen3}
 							className='mr-1'
 						>
 							<span>Cancel</span>
