@@ -4,7 +4,7 @@ if (process.env.NODE_ENV === 'development') {
 	baseUrl = 'http://localhost:5005/api/v1';
 	console.log('Running in development mode');
 } else {
-	baseUrl = 'https://expresslife-d28360a1553b.herokuapp.com/api/v1';
+	baseUrl = 'https://express-api1-be08a1c77321.herokuapp.comapi/v1';
 	// Code specific to production mode
 	console.log('Running in production mode');
 }

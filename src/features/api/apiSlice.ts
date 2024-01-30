@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const baseUrl =
 	process.env.NODE_ENV === 'development'
 		? 'http://localhost:5005/api/v1'
-		: 'https://expresslife-d28360a1553b.herokuapp.com/api/v1';
+		: 'https://express-api1-be08a1c77321.herokuapp.com/api/v1';
 
 console.log('baseUrl', baseUrl);
 export const apiSlice = createApi({
