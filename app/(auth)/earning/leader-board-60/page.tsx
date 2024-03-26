@@ -14,7 +14,7 @@ const LeaderBoard60 = () => {
 						<p className='font-normal  text-center text-gray-400'>
 							Leader Board 60 Start at
 						</p>
-						<Button>25th March 2024 00:00:00 (UTC)</Button>
+						<Button>30 March 2024 00:00:00 (UTC)</Button>
 					</div>
 				</div>
 			</TableBox>

@@ -252,6 +252,11 @@ export const authApi = apiSlice.injectEndpoints({
 		getMyTeam01: builder.query<any, any>({
 			query: () => `/my_team_1`,
 		}),
+
+		// get my cashback
+		getMyCashback: builder.query<any, any>({
+			query: () => `/my-cashback`,
+		}),
 	}),
 });
 
@@ -282,4 +287,5 @@ export const {
 	useClaimRankBonusMutation,
 	useReactivationUserMutation,
 	useGetMyTeam01Query,
+	useGetMyCashbackQuery,
 } = authApi;
