@@ -14,7 +14,7 @@ const Staking = () => {
 						<p className='font-normal  text-center text-gray-400'>
 							Staking Start at
 						</p>
-						<Button>25th March 2024 12:00 AM</Button>
+						<Button>30 March 2024 00:00:00 (UTC)</Button>
 					</div>
 				</div>
 			</TableBox>
